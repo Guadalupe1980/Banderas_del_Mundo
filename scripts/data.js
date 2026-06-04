@@ -1,7 +1,7 @@
 /* CONSUMIENDO API */
 async function traerDatos() {
   try {
-    let response = await fetch("/data.json");
+    let response = await fetch("./data.json");
     let data = await response.json();
     return data;
   } catch (error) {
