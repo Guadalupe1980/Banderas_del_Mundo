@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-bg-app: #f3f4f6;       /* Fondo claro de la pantalla */
+  --color-bg-el: #ffffff;        /* Fondo claro de tarjetas/inputs/header */
+  --color-txt: #111517;         /* Texto oscuro */
+}
+
+html.dark {
+  --color-bg-app: #202c37;       /* Fondo oscuro global de la pantalla */
+  --color-bg-el: #2b3945;        /* Fondo oscuro de tarjetas/inputs/header */
+  --color-txt: #ffffff;         /* Texto blanco */
+}
+
+/* 1. Forzamos a que la pantalla completa use el color base */
+html, body {
+  min-height: 100vh;
+  background-color: var(--color-bg-app) !important;
+  color: var(--color-txt);
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Forzamos a que el main y las secciones NO tengan fondos propios y dejen ver el fondo global */
+main, section, div.search-container, div.filter-container {
+  background-color: transparent !important;
+}
+
+/* 3. Elementos específicos que sí llevan el color de las tarjetas/inputs */
+header, input, select {
+  background-color: var(--color-bg-el) !important;
+  color: var(--color-txt) !important;
+}
+
+/* 4. Transición idéntica para absolutamente todo */
+*, ::before, ::after {
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
