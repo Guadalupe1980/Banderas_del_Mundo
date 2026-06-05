@@ -1,10 +1,17 @@
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
-import {resolve} from 'path'
+import { resolve } from 'path'
+import copy from 'rollup-plugin-copy' // <-- Importa el plugin
 
 export default defineConfig({
   plugins: [
     tailwindcss(),
+    copy({
+      targets: [
+        { src: 'data.json', dest: 'dist' } // <-- Le dice a Vite: "Copia data.json a la carpeta final dist"
+      ],
+      hook: 'writeBundle' // Hace que se copie justo al terminar la compilación
+    })
   ],
   build: {
     rollupOptions: {
