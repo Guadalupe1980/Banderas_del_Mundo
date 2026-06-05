@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./style.css">
   <script type="module" src="./scripts/darkMode.js"></script>
   <script type="module" src="./scripts/data.js"></script>
+  <script type="module" src="./scripts/filterBanderas.js"></script>
   <title>semana-final</title>
 </head>
 
@@ -31,18 +32,26 @@
             d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06zM10.5 7a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0"
             clip-rule="evenodd" />
         </svg>
-        <input class="bg-white w-full pl-14 pr-5 py-4 rounded-md shadow focus:outline-none text-sm lg:w-150" type="text"
-          placeholder="Search for a country...">
+        <input id="filtro-input" class="bg-white w-full pl-14 pr-5 py-4 rounded-md shadow focus:outline-none text-sm lg:w-150" type="text"
+          placeholder="Search for a country...">  
       </div>
 
       <!--Filter de banderas-->
       <select id="region-filter" class="bg-white w-50 px-5 py-4 lg:mr-10 rounded-sm shadow-sm focus:outline-none text-sm" name="regions">
-        <option value="all">All the flags</option>
-       <!-- <option value="africa">Africa</option> -->
+      <option value="All">All</option>
+       <option value="Asia">Asia</option>
+       <option value="Europe">Europe</option>
+       <option value="Africa">Africa</option>
+       <option value="Oceania">Oceania</option>
+       <option value="Americas">Americas</option>
+       <option value="Polar">Polar</option>
+       <option value="Antarctic Ocean">Antarctic Ocean</option>
+       <option value="Antarctic">Antarctic</option>
       </select>
     </section>
 
-    <div id="banderaCont" class="flex flex-col items-center gap-10 md:grid md:grid-cols-2 lg:grid-cols-4 lg:gap-10 px-12" "></div>
+    <!--APARTADO DONDE SE PINTARAN LAS BANDERAS -->
+    <div id="banderaCont" class="flex flex-col items-center gap-10 md:grid md:grid-cols-2 lg:grid-cols-5 lg:gap-10 px-12" "></div>
     
   </main>
 </body>
