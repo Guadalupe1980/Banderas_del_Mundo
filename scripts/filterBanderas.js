@@ -4,17 +4,20 @@ import { cardbandera, contenedorBandera, mostrarPaises } from "./data.js";
 
 
 /* FILTRO DE BUSQUEDA */
+/* Llamamos a los id del html */
 let filtroBusqueda = document.querySelector("#region-filter")
 let filtroInput = document.querySelector("#filtro-input")
 
+/* Les asignamos un evento */
 filtroBusqueda.addEventListener("change", busquedaRegion)
 filtroInput.addEventListener("input", busquedaRegion)
 
+/* Funcion combinada para ambos filtros*/
 function busquedaRegion(){
-  let region = filtroBusqueda.value
-  let textInput = filtroInput.value.toLowerCase()
+  let region = filtroBusqueda.value //evalua la accion del usuario
+  let textInput = filtroInput.value.toLowerCase() //evalua al texto insertado
 
-  let paisesFiltrados = cardbandera;
+  let paisesFiltrados = cardbandera; //asigna variable al objeto comnpleto
 
   if (region !== "All") {
     paisesFiltrados = paisesFiltrados.filter(pais => pais.region === region)
